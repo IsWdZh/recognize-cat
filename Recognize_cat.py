@@ -2,6 +2,9 @@ import numpy as np
 # import h5py
 from matplotlib import pyplot as plt
 from data_utils import load_dataset
+import scipy
+from scipy import ndimage
+
 
 
 train_set_x_org, train_set_y, test_set_x_org, test_set_y, classes = load_dataset()
@@ -154,13 +157,13 @@ plt.show()
 # plt.show()
 
 
-# my_image = "1.jpg"
-# fname = "images/" + my_image
-# image = np.array(ndimage.imread(fname, flatten=False))
-# my_image = scipy.misc.imresize(image, size=(num_px,num_px)).reshape((1, num_px*num_px*3)).T
-# my_predicted_image = predict(d["w"], d["b"], my_image)
-#
-# plt.imshow(image)
-# print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts a \"" + \
-#       classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
+my_image = "2.jpg"
+fname = "images/" + my_image
+image = np.array(ndimage.imread(fname, flatten=False))
+my_image = scipy.misc.imresize(image, size=(num_px,num_px)).reshape((1, num_px*num_px*3)).T
+my_predicted_image = predict(d["w"], d["b"], my_image)
+
+plt.imshow(image)
+print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts a \"" + \
+      classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
 
